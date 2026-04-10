@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>guy — desktop companion</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell" data-mode="idle">
+      <header class="titlebar">
+        <div class="title-group">
+          <span class="orb" aria-hidden="true"></span>
+          <div>
+            <p class="title">guy</p>
+            <p class="subtitle" id="presence">calm and ready</p>
+          </div>
+        </div>
+        <div class="window-actions" aria-label="Window controls">
+          <button class="window-btn min" aria-label="minimize"></button>
+          <button class="window-btn max" aria-label="maximize"></button>
+          <button class="window-btn close" aria-label="close"></button>
+        </div>
+      </header>
+
+      <section class="world-card" aria-label="Guy's room scene">
+        <div class="ambient-haze" aria-hidden="true"></div>
+        <div class="scanlines" aria-hidden="true"></div>
+
+        <div class="back-wall" aria-hidden="true">
+          <div class="stars"></div>
+          <div class="window"></div>
+          <div class="shelf"></div>
+          <div class="shelf-items"><span></span><span></span><span></span><span></span></div>
+        </div>
+
+        <div class="mid-layer" aria-hidden="true">
+          <div class="lamp"></div>
+          <div class="desk"></div>
+          <div class="monitor-glow"></div>
+          <div class="monitor"><div class="monitor-screen"></div></div>
+          <div class="keyboard"></div>
+          <div class="plant"></div>
+        </div>
+
+        <div class="front-layer" aria-hidden="true">
+          <div class="rug"></div>
+          <div class="fog"></div>
+        </div>
+
+        <div class="thought-bubble" id="thoughtBubble" aria-live="polite">
+          <p id="thoughtText">Want me to map out your next task?</p>
+        </div>
+
+        <div class="guy" id="guy" data-state="idle" aria-label="guy companion">
+          <div class="shadow"></div>
+          <div class="body">
+            <div class="face">
+              <span class="eye left"></span>
+              <span class="eye right"></span>
+              <span class="cheek left"></span>
+              <span class="cheek right"></span>
+              <span class="mouth"></span>
+            </div>
+          </div>
+          <div class="arm left"></div>
+          <div class="arm right"></div>
+        </div>
+      </section>
+
+      <section class="status-row">
+        <div class="status-pill" id="activityPill">
+          <span class="dot"></span>
+          <span id="activityLabel">idle · ambient listening</span>
+        </div>
+        <button id="toggleLog" class="ghost-btn" aria-expanded="false">conversation</button>
+      </section>
+
+      <section id="logPanel" class="log-panel" hidden>
+        <div class="messages" id="messages"></div>
+      </section>
+
+      <form class="task-bar" id="taskForm">
+        <input
+          type="text"
+          id="taskInput"
+          name="task"
+          autocomplete="off"
+          placeholder="give guy a task…"
+          aria-label="Give guy a task"
+        />
+        <button type="submit">send</button>
+      </form>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
